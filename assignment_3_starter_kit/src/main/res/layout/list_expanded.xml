@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#CCCCCC">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:gravity="center_vertical|left"
+        android:text="KD323B"
+        android:id="@+id/depTime"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="4dp"
+        android:height="56dp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="150413"
+        android:id="@+id/arrTime"
+        android:layout_marginLeft="4dp"
+        android:layout_weight="1"/>
+</LinearLayout>

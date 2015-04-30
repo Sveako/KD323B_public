@@ -1,0 +1,86 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="se.mah.k3.skaneAPI.Fragment_travels"
+    android:background="#ffffffff"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/från"
+            android:id="@+id/textViewFran"
+            android:textColor="@android:color/black"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_gravity="center_horizontal"
+            android:spinnerMode="dropdown"
+            android:entries="@array/stations"
+            android:layout_marginLeft="7dip"
+            android:layout_marginRight="7dip"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/till"
+            android:id="@+id/textViewTill"
+            android:textColor="@android:color/black"
+            android:paddingLeft="15dp" />
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_gravity="center_horizontal"
+            android:spinnerMode="dropdown"
+            android:entries="@array/stations"
+            android:layout_marginLeft="7dip"
+            android:layout_marginRight="7dip"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/avg"
+                android:id="@+id/boo"
+                android:layout_weight="1"
+                android:layout_marginRight="4dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ExpandableListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/expandableListView"
+            android:layout_gravity="left|top"
+            android:groupIndicator="@null"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="@dimen/customDivider" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,21 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="se.mah.k3.skaneAPI"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    package="se.mah.k3.skaneAPI" >
 
-    <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <!-- gives the application access to the internet. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/CustomActionBarTheme">
         <activity
-            android:name="se.mah.k3.skaneAPI.view.TestActivity"
-            android:label="@string/title_activity_test" >
+            android:name=".view.TestActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +20,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

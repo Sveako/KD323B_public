@@ -30,4 +30,10 @@
             android:layout_gravity="left|top"
             android:groupIndicator="@null"/>
     </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/horizontalScrollView"
+        android:layout_gravity="right|bottom" />
 </FrameLayout>

@@ -1,44 +1,41 @@
 package se.mah.k3.skaneAPI.view;
 
-import android.app.Activity;
-import android.os.AsyncTask;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 import se.mah.k3.skaneAPI.R;
-import se.mah.k3.skaneAPI.control.Constants;
-import se.mah.k3.skaneAPI.model.Journey;
-import se.mah.k3.skaneAPI.model.Journeys;
-import se.mah.k3.skaneAPI.xmlparser.Parser;
 
-public class TestActivity extends Activity {
-    private  ArrayList<Journey> journeyList;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+
+
+public class TestActivity extends ActionBarActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        journeyList = new ArrayList<Journey>();
-        View v = findViewById(R.id.btn_search);
-        v. setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String searchURL = Constants.getURL("80000", "93070", 10); //Malmö C = 80000,  Malmö GAtorg 80100, Hässleholm C 93070
-                new DoInBackground().execute(searchURL);
-            }
-        });
 
+        android.app.FragmentManager fm = getFragmentManager();
+        android.app.FragmentTransaction ft = fm.beginTransaction();
+        FragmentTwo t = new FragmentTwo();
+        ft.replace(R.id.container, t);
+        ft.commit();
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar
-        getMenuInflater().inflate(R.menu.menu_test, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -57,32 +54,19 @@ public class TestActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void searchFinished(){
-        TextView tw = (TextView)findViewById(R.id.textView_test);
-        tw.setText("");
-        for (Journey j: journeyList){
-            tw.append("From"+ j.getStartStation().getStationName()
-                    +" To: "+ j.getEndStation()
-                    + " leaves : "+j.getTimeToDeparture()+ "\n");
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
 
-        }
-    }
-
-//This is a AsyncTask Thread built for Android
-    private class DoInBackground extends AsyncTask<String,Void,Long> {
-        @Override
-        protected Long doInBackground(String... params) {
-             //Search
-            Journeys journeys = Parser.getJourneys(params[0]); //There can be many in the params Array
-            //And put the Journeys in our list.
-            journeyList.clear();
-            journeyList.addAll(journeys.getJourneys());
-            return null;
+        public PlaceholderFragment() {
         }
 
         @Override
-        protected void onPostExecute(Long result) { //Called when the AsyncTask is all done
-            searchFinished();
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_two, container, false);
+            return rootView;
         }
     }
 }
